@@ -12,6 +12,10 @@
 #define ARRAY_ASC 100
 #define ARRAY_DESC 101
 
+#define ARRAY_NOT_FOUND -1;
+#define ARRAY_NOT_SORTED -2;
+
+
 /**
 * Does not modify the length of the array.
 */

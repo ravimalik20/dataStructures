@@ -48,7 +48,32 @@ int Array_linear_search(int *arr, int len, int item)
 		if (arr[i] == item)
 			return i;
 
-	return -1;
+	return ARRAY_NOT_FOUND;
+}
+
+/**
+* Currently only works for arrays sorted in ascending order.
+*/
+int Array_binary_search(int *arr, int len, int item)
+{
+	if (!Array_sorted(arr, len, ARRAY_ASC))
+		return ARRAY_NOT_SORTED;
+
+	int start=0, end=len, mid=(start+end)/2;
+
+	while (start < end && arr[mid] != item) {
+		if (arr[mid] > item)
+			end = mid - 1;
+		else
+			start = mid + 1;
+
+		mid = (start + end) / 2;
+	}
+
+	if (arr[mid] == item)
+		return mid;
+	else
+		return ARRAY_NOT_FOUND;
 }
 
 bool Array_sorted(int *arr, int len, int dir)
