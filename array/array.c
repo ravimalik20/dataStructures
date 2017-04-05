@@ -50,3 +50,21 @@ int Array_linear_search(int *arr, int len, int item)
 
 	return -1;
 }
+
+bool Array_sorted(int *arr, int len, int dir)
+{
+	assert(len >0);
+	assert(dir == ARRAY_ASC || dir == ARRAY_DESC);
+
+	int i=0;
+
+	for (i=0; i<len-1; i++) {
+		if (dir == ARRAY_ASC && arr[i] > arr[i+1])
+			return false;
+
+		if (dir == ARRAY_DESC && arr[i] < arr[i+1])
+			return false;
+	}
+
+	return true;
+}

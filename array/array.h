@@ -9,6 +9,12 @@
 
 #include<stdbool.h>
 
+#define ARRAY_ASC 100
+#define ARRAY_DESC 101
+
+/**
+* Does not modify the length of the array.
+*/
 void Array_insert(int *arr, int len, int item, int pos);
 void Array_delete(int *arr, int len, int pos);
 
@@ -20,8 +26,9 @@ int Array_binary_search(int *arr, int len, int item);
 
 /**
 * Check if array is sorted.
+* dir = ARRAY_ASC | ARRAY_DESC
 */
-bool Array_sorted(int *arr, int len);
+bool Array_sorted(int *arr, int len, int dir);
 
 /**
 * Array sorting functions.
