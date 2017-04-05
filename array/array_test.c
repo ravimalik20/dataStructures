@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include"../local_utils/utils.h"
 #include"array.h"
 
 #define ARR_LEN 10
@@ -11,4 +12,12 @@ void main()
 
 	ARR_LINEAR_SEARCH(arr, ARR_LEN, 8);
 	ARR_LINEAR_SEARCH(arr, ARR_LEN, 18);
+
+	Array_print(arr, ARR_LEN);
+
+	Array_insert(arr, ARR_LEN, 2, 2);
+	Array_print(arr, ARR_LEN);
+
+	Array_delete(arr, ARR_LEN, 4);
+	Array_print(arr, ARR_LEN);
 }

@@ -9,6 +9,9 @@
 
 #include<stdbool.h>
 
+void Array_insert(int *arr, int len, int item, int pos);
+void Array_delete(int *arr, int len, int pos);
+
 /**
 * Array searching functions.
 */
