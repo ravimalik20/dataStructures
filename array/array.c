@@ -93,3 +93,15 @@ bool Array_sorted(int *arr, int len, int dir)
 
 	return true;
 }
+
+void Array_bubble_sort(int *arr, int len)
+{
+	assert(len > 0);
+
+	int i=0, j=0;
+
+	for (i = 0; i < len ; i++)
+		for (j = 0 ; j < len-i-1; j++)
+			if (arr[j] > arr[j+1])
+				swap(&arr[j], &arr[j+1]);
+}

@@ -24,16 +24,16 @@ void main()
 	Array_print(arr, ARR_LEN);
 
 	int arr1[4] = {0, 1, 2, 3};
-	printf("%d\n", Array_sorted(arr1, 4, ARRAY_ASC));
+	printf("Is array sorted:%d\n", Array_sorted(arr1, 4, ARRAY_ASC));
 
 	int arr2[4] = {0, 0, 1, 1};
-	printf("%d\n", Array_sorted(arr2, 4, ARRAY_ASC));
+	printf("Is array sorted:%d\n", Array_sorted(arr2, 4, ARRAY_ASC));
 
 	int arr3[4] = {0, 1, 3, 2};
-	printf("%d\n", Array_sorted(arr3, 4, ARRAY_ASC));
+	printf("Is array sorted:%d\n", Array_sorted(arr3, 4, ARRAY_ASC));
 
 	int arr4[1] = {0};
-	printf("%d\n", Array_sorted(arr4, 1, ARRAY_DESC));
+	printf("Is array sorted:%d\n", Array_sorted(arr4, 1, ARRAY_DESC));
 
 	int arr5[10] = {1, 2, 3, 4, 5, 6, 7 , 8, 9, 10};
 
@@ -47,4 +47,10 @@ void main()
 	ARR_BINARY_SEARCH(arr6, 1, 2);
 	ARR_BINARY_SEARCH(arr6, 1, 1);
 	ARR_BINARY_SEARCH(arr6, 1, -2);
+
+	int arr7[10] = {88, 12, 43, 17, 68, 37, 97, 50, 31, 73};
+	Array_print(arr7, 10);
+	Array_bubble_sort(arr7, 10);
+	Array_print(arr7, 10);
+	printf("Is array sorted:%d\n", Array_sorted(arr7, 10, ARRAY_ASC));
 }
