@@ -37,12 +37,57 @@ int LinkList_insert(LinkList *list, int item, LinkNode *node)
 		node->link = node_new;
 	}
 
-	list->count++;		
+	list->count++;
+
+	return 0;
+}
+
+int LinkList_insert_beg(LinkList *list, int item)
+{
+	LinkNode *node = malloc(sizeof(LinkNode));
+	node->val = item;
+
+	node->link = list->head;
+	list->head = node;
+
+	list->count++;
+
+	return 0;
+}
+
+int LinkList_insert_end(LinkList *list, int item)
+{
+	LinkNode *node = malloc(sizeof(LinkNode));
+	node->val = item;
+	node->link = NULL;
+
+	if (list->tail != NULL)
+		list->tail->link = node;
+
+	list->tail = node;
+
+	list->count++;
+
+	return 0;
 }
 
 int LinkList_count(LinkList *list)
 {
 	return list->count;
+}
+
+void LinkList_free(LinkList *list)
+{
+	LinkNode *node = list->head, *node_next;
+
+	while (node != NULL) {
+		node_next = node->link;
+		free(node);
+
+		node = node_next;
+	}
+
+	free(list);
 }
 
 void LinkList_print(LinkList *list)

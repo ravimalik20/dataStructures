@@ -23,4 +23,14 @@ void main()
 
 	printf("Count:%d | List: ", LinkList_count(list));
 	LinkList_print(list);
+
+	LinkList_insert_beg(list, -98);
+	LinkList_insert_beg(list, -99);
+	LinkList_insert_end(list, 98);
+	LinkList_insert_end(list, 99);
+
+	printf("Count:%d | List: ", LinkList_count(list));
+	LinkList_print(list);
+
+	LinkList_free(list);
 }

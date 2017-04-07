@@ -19,6 +19,10 @@ void LinkList_free(LinkList *list);
 
 int LinkList_insert(LinkList *list, int item, LinkNode *node);
 
+int LinkList_insert_beg(LinkList *list, int item);
+
+int LinkList_insert_end(LinkList *list, int item);
+
 int LinkList_delete(LinkList *list, LinkNode *node);
 
 void LinkList_print(LinkList *list);
