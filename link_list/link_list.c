@@ -90,6 +90,34 @@ int LinkList_insert_end(LinkList *list, int item)
 	return 0;
 }
 
+int LinkList_delete(LinkList *list, LinkNode *node)
+{
+	LinkNode *node_prev=NULL, *node_temp = list->head;
+
+	while (node_temp != node) {
+		node_prev = node_temp;
+		node_temp = node_temp->link;
+	}
+
+	if (node_temp == NULL)
+		return -1;
+
+	if (node_prev == NULL) {
+		list->head = node->link;
+	}
+	else {
+		node_prev->link = node->link;
+	}
+
+	if (node->link == NULL) {
+		list->tail = node_prev;
+	}
+
+	free(node);
+
+	list->count--;
+}
+
 int LinkList_count(LinkList *list)
 {
 	assert(list != NULL);

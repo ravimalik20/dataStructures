@@ -8,9 +8,13 @@ purpose of learning.
 	- Insertion, Deletion
 	- Searching: Linear, Binary
 	- Sorting: Bubble Sort
+2. Linked List
+	- Create
+	- Insert
+	- Delete
+	- Search
 
 #### Next Up:
-- Linked List
 - Stack
 - Queue
 
