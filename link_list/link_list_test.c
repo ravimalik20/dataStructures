@@ -32,5 +32,8 @@ void main()
 	printf("Count:%d | List: ", LinkList_count(list));
 	LinkList_print(list);
 
+	printf("%d found at position: %p\n", 99, LinkList_search(list, 99));
+	printf("%d found at position: %p\n", -199, LinkList_search(list, -199));
+
 	LinkList_free(list);
 }

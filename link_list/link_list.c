@@ -102,3 +102,17 @@ void LinkList_print(LinkList *list)
 
 	putchar('\n');
 }
+
+/**
+* Returns NULL if not found.
+*/
+LinkNode *LinkList_search(LinkList *list, int item)
+{
+	LinkNode *node;
+
+	for (node = list->head; node != NULL; node = node->link)
+		if (node->val == item)
+			return node;
+
+	return NULL;
+}

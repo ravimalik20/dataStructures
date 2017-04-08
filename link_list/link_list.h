@@ -29,4 +29,6 @@ void LinkList_print(LinkList *list);
 
 int LinkList_count(LinkList *list);
 
+LinkNode *LinkList_search(LinkList *list, int item);
+
 #endif
