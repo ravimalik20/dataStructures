@@ -1,10 +1,14 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<assert.h>
 #include"link_list.h"
 
 LinkList *LinkList_new(void)
 {
 	LinkList *list = malloc(sizeof(LinkList));
+
+	if (!list)
+		return NULL;
 
 	list->count = 0;
 	list->head = NULL;
@@ -18,7 +22,12 @@ LinkList *LinkList_new(void)
 */
 int LinkList_insert(LinkList *list, int item, LinkNode *node)
 {
+	assert(list != NULL);
+
 	LinkNode *node_new = malloc(sizeof(LinkNode));
+	if (!node_new)
+		return LL_MEM_ALLOC_FAILED;
+
 	node_new->val = item;
 	node_new->link = NULL;
 
@@ -44,7 +53,12 @@ int LinkList_insert(LinkList *list, int item, LinkNode *node)
 
 int LinkList_insert_beg(LinkList *list, int item)
 {
+	assert(list != NULL);
+
 	LinkNode *node = malloc(sizeof(LinkNode));
+	if (!node)
+		return LL_MEM_ALLOC_FAILED;
+
 	node->val = item;
 
 	node->link = list->head;
@@ -57,7 +71,12 @@ int LinkList_insert_beg(LinkList *list, int item)
 
 int LinkList_insert_end(LinkList *list, int item)
 {
+	assert(list != NULL);
+
 	LinkNode *node = malloc(sizeof(LinkNode));
+	if (!node)
+		return LL_MEM_ALLOC_FAILED;
+
 	node->val = item;
 	node->link = NULL;
 
@@ -73,11 +92,15 @@ int LinkList_insert_end(LinkList *list, int item)
 
 int LinkList_count(LinkList *list)
 {
+	assert(list != NULL);
+
 	return list->count;
 }
 
 void LinkList_free(LinkList *list)
 {
+	assert(list != NULL);
+
 	LinkNode *node = list->head, *node_next;
 
 	while (node != NULL) {
@@ -92,6 +115,8 @@ void LinkList_free(LinkList *list)
 
 void LinkList_print(LinkList *list)
 {
+	assert(list != NULL);
+
 	LinkNode *node = list->head;
 
 	while (node != NULL) {
@@ -108,6 +133,8 @@ void LinkList_print(LinkList *list)
 */
 LinkNode *LinkList_search(LinkList *list, int item)
 {
+	assert(list != NULL);
+
 	LinkNode *node;
 
 	for (node = list->head; node != NULL; node = node->link)
