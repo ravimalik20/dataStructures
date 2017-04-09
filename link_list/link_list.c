@@ -64,6 +64,9 @@ int LinkList_insert_beg(LinkList *list, int item)
 	node->link = list->head;
 	list->head = node;
 
+	if (list->tail == NULL)
+		list->tail = node;
+
 	list->count++;
 
 	return 0;
@@ -84,6 +87,9 @@ int LinkList_insert_end(LinkList *list, int item)
 		list->tail->link = node;
 
 	list->tail = node;
+
+	if (list->head == NULL)
+		list->head = node;
 
 	list->count++;
 
