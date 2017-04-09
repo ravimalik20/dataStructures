@@ -13,10 +13,26 @@ purpose of learning.
 	- Insert
 	- Delete
 	- Search
+3. Stack
 
 #### Next Up:
-- Stack
 - Queue
+- Trees
+- Graphs
+- Hashes
+
+## Data Structure use cases in the repo
+1. Linked List
+	- Stack
+
+### Next Up
+- Linked List
+	- Queue
+- Stack
+	- Infix to postfix converison
+- Recursion
+	- Towers of hanoi
+	- Quick Sort
 
 ## License
 
