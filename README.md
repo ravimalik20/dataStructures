@@ -14,9 +14,9 @@ purpose of learning.
 	- Delete
 	- Search
 3. Stack
+4. Queue
 
 #### Next Up:
-- Queue
 - Trees
 - Graphs
 - Hashes
@@ -24,10 +24,9 @@ purpose of learning.
 ## Data Structure use cases in the repo
 1. Linked List
 	- Stack
+	- Queue
 
 ### Next Up
-- Linked List
-	- Queue
 - Stack
 	- Infix to postfix converison
 - Recursion
