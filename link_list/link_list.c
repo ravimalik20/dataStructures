@@ -98,6 +98,9 @@ int LinkList_insert_end(LinkList *list, int item)
 
 int LinkList_delete(LinkList *list, LinkNode *node)
 {
+	assert(list != NULL);
+	assert(node != NULL);
+
 	LinkNode *node_prev=NULL, *node_temp = list->head;
 
 	while (node_temp != node) {

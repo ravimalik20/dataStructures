@@ -12,6 +12,7 @@ static void quicksort(int *arr, int beg, int end);
 */
 void Array_insert(int *arr, int len, int item, int pos)
 {
+	assert(arr);
     assert(len > 0);
     assert(pos < len);
 
@@ -30,6 +31,7 @@ void Array_insert(int *arr, int len, int item, int pos)
 */
 void Array_delete(int *arr, int len, int pos)
 {
+	assert(arr);
     assert(len > 0);
     assert(pos < len);
 
@@ -43,6 +45,7 @@ void Array_delete(int *arr, int len, int pos)
 
 int Array_linear_search(int *arr, int len, int item)
 {
+	assert(arr);
 	assert(len > 0);
 
 	int i = 0;
@@ -59,6 +62,9 @@ int Array_linear_search(int *arr, int len, int item)
 */
 int Array_binary_search(int *arr, int len, int item)
 {
+	assert(arr);
+	assert(len > 0);
+
 	if (!Array_sorted(arr, len, ARRAY_ASC))
 		return ARRAY_NOT_SORTED;
 
@@ -81,7 +87,8 @@ int Array_binary_search(int *arr, int len, int item)
 
 bool Array_sorted(int *arr, int len, int dir)
 {
-	assert(len >0);
+	assert(arr);
+	assert(len > 0);
 	assert(dir == ARRAY_ASC || dir == ARRAY_DESC);
 
 	int i=0;
@@ -99,6 +106,7 @@ bool Array_sorted(int *arr, int len, int dir)
 
 void Array_bubble_sort(int *arr, int len)
 {
+	assert(arr);
 	assert(len > 0);
 
 	int i=0, j=0;
@@ -111,6 +119,7 @@ void Array_bubble_sort(int *arr, int len)
 
 void Array_quick_sort(int *arr, int len)
 {
+	assert(arr);
 	assert(len > 0);
 
 	quicksort(arr, 0, len-1);

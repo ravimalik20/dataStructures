@@ -3,6 +3,8 @@
 
 void Array_print(int *arr, int len)
 {
+	assert(arr);
+
 	int i;
 
 	for (i=0; i<len; i++) {
@@ -18,6 +20,9 @@ void Array_print(int *arr, int len)
 
 void swap(int *a, int *b)
 {
+	assert(a);
+	assert(b);
+
 	int temp;
 
 	temp = *a;
