@@ -53,4 +53,12 @@ void main()
 	Array_bubble_sort(arr7, 10);
 	Array_print(arr7, 10);
 	printf("Is array sorted:%d\n", Array_sorted(arr7, 10, ARRAY_ASC));
+
+	int arr8[20] = {876, 603, 307, 197, 517, 701, 854, 636, 469, 298, 436, 158,
+		434, 807, 888, 709, 262, 39, 450, 836};
+	Array_print(arr8, 20);
+	Array_quick_sort(arr8, 20);
+	Array_print(arr8, 20);
+	printf("Is array sorted:%d\n", Array_sorted(arr8, 20, ARRAY_ASC));
+	
 }

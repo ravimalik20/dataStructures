@@ -1,6 +1,9 @@
 #include<assert.h>
+#include<stdio.h>
 #include"../local_utils/utils.h"
 #include"array.h"
+
+static void quicksort(int *arr, int beg, int end);
 
 /**
 * Insert function does not increase the length of the array. It simply swaps
@@ -104,4 +107,49 @@ void Array_bubble_sort(int *arr, int len)
 		for (j = 0 ; j < len-i-1; j++)
 			if (arr[j] > arr[j+1])
 				swap(&arr[j], &arr[j+1]);
+}
+
+void Array_quick_sort(int *arr, int len)
+{
+	assert(len > 0);
+
+	quicksort(arr, 0, len-1);
+}
+
+static void quicksort(int *arr, int beg, int end)
+{
+	if (beg > end)
+		return ;
+
+	int i=0, pivot=beg;
+	bool found = true;
+
+	while (found == true) {
+		found = false;
+
+		for (i = end ; i > pivot ; i--) {
+			if (arr[i] < arr[pivot]) {
+				swap(&arr[i], &arr[pivot]);
+				pivot = i;
+
+				found = true;
+
+				break;
+			}
+		}
+
+		for (i = beg ; i < pivot ; i++) {
+			if (arr[i] > arr[pivot]) {
+				swap(&arr[i], &arr[pivot]);
+				pivot = i;
+
+				found = true;
+
+				break;
+			}
+		}
+	}
+
+	quicksort(arr, beg, pivot-1);
+	quicksort(arr, pivot+1, end);
 }
