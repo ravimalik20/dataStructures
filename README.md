@@ -7,7 +7,7 @@ purpose of learning.
 1. Arrays
 	- Insertion, Deletion
 	- Searching: Linear, Binary
-	- Sorting: Bubble Sort
+	- Sorting: Bubble Sort, Quick Sort
 2. Linked List
 	- Create
 	- Insert
@@ -22,7 +22,9 @@ purpose of learning.
 - Hashes
 
 ## Data Structure use cases in the repo
-1. Linked List
+1. Recursion
+	- Quick Sort
+2. Linked List
 	- Stack
 	- Queue
 
@@ -31,7 +33,6 @@ purpose of learning.
 	- Infix to postfix converison
 - Recursion
 	- Towers of hanoi
-	- Quick Sort
 
 ## License
 
