@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<assert.h>
 #include"utils.h"
 
 void Array_print(int *arr, int len)
