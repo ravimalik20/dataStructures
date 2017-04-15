@@ -15,6 +15,7 @@ purpose of learning.
 	- Search
 3. Stack
 4. Queue
+5. Double Ended Queue (DQueue)
 
 #### Next Up:
 - Trees
@@ -27,6 +28,7 @@ purpose of learning.
 2. Linked List
 	- Stack
 	- Queue
+	- Dqueue
 
 ### Next Up
 - Stack
