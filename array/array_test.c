@@ -60,5 +60,11 @@ void main()
 	Array_quick_sort(arr8, 20);
 	Array_print(arr8, 20);
 	printf("Is array sorted:%d\n", Array_sorted(arr8, 20, ARRAY_ASC));
-	
+
+	int arr9[15] = {1781, 171, 127, 45, 780, 1120, 238, 535, 1482, 30, 1786,
+		555, 231, 1672, 485};
+	Array_print(arr9, 15);
+	Array_selection_sort(arr9, 15);
+	Array_print(arr9, 15);
+	printf("Is array sorted:%d\n", Array_sorted(arr9, 15, ARRAY_ASC));
 }

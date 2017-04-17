@@ -117,6 +117,22 @@ void Array_bubble_sort(int *arr, int len)
 				swap(&arr[j], &arr[j+1]);
 }
 
+void Array_selection_sort(int *arr, int len)
+{
+	int i = 0, j = 0, i_min;
+
+	for (i = 0; i < len; i++) {
+		i_min = i;
+
+		for (j = i ; j < len ; j++) {
+			if (arr[j] < arr[i_min])
+				i_min = j;
+		}
+
+		swap(&arr[i], &arr[i_min]);
+	}
+}
+
 void Array_quick_sort(int *arr, int len)
 {
 	assert(arr);
