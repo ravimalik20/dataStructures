@@ -1,6 +1,9 @@
 #ifndef BSTREE_H
 #define BSTREE_H
 
+#define BSTREE_MEM_ALLOC_FAILED -1
+#define BSTREE_SUCCESS 0
+
 struct BSNode {
 	int val;
 	struct BSNode *left, *right;

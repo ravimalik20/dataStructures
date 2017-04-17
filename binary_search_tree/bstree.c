@@ -17,9 +17,11 @@ BSTree *BSTree_new(void)
 
 int BSTree_insert(BSTree *tree, int val)
 {
+	assert(tree);
+
 	BSNode *node_new = malloc(sizeof(BSNode));
 	if (!node_new)
-		return -1;
+		return BSTREE_MEM_ALLOC_FAILED;
 
 	node_new->left = NULL;
 	node_new->right = NULL;
@@ -43,11 +45,13 @@ int BSTree_insert(BSTree *tree, int val)
 	else
 		node_parent->left = node_new;
 
-	return 0;
+	return BSTREE_SUCCESS;
 }
 
 BSNode *BSTree_search(BSTree *tree, int val)
 {
+	assert(tree);
+
 	BSNode *node = tree->root;
 
 	while (node != NULL && node->val != val) {
@@ -62,6 +66,8 @@ BSNode *BSTree_search(BSTree *tree, int val)
 
 void BSTree_traverse_preorder(BSTree *tree)
 {
+	assert(tree);
+
 	preorder(tree->root);
 
 	putchar('\n');
@@ -69,6 +75,8 @@ void BSTree_traverse_preorder(BSTree *tree)
 
 void BSTree_traverse_inorder(BSTree *tree)
 {
+	assert(tree);
+
 	inorder(tree->root);
 
 	putchar('\n');
@@ -76,6 +84,8 @@ void BSTree_traverse_inorder(BSTree *tree)
 
 void BSTree_traverse_postorder(BSTree *tree)
 {
+	assert(tree);
+
 	postorder(tree->root);
 
 	putchar('\n');
