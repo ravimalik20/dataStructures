@@ -4,6 +4,8 @@
 #include"bstree.h"
 
 static void preorder(BSNode *node);
+static void inorder(BSNode *node);
+static void postorder(BSNode *node);
 
 BSTree *BSTree_new(void)
 {
@@ -51,6 +53,20 @@ void BSTree_traverse_preorder(BSTree *tree)
 	putchar('\n');
 }
 
+void BSTree_traverse_inorder(BSTree *tree)
+{
+	inorder(tree->root);
+
+	putchar('\n');
+}
+
+void BSTree_traverse_postorder(BSTree *tree)
+{
+	postorder(tree->root);
+
+	putchar('\n');
+}
+
 void BSTree_free(BSTree *tree)
 {
 	assert(tree);
@@ -66,4 +82,24 @@ static void preorder(BSNode *node)
 	printf("%d ", node->val);
 	preorder(node->left);
 	preorder(node->right);
+}
+
+static void inorder(BSNode *node)
+{
+	if (node == NULL)
+		return;
+
+	inorder(node->left);
+	printf("%d ", node->val);
+	inorder(node->right);
+}
+
+static void postorder(BSNode *node)
+{
+	if (node == NULL)
+		return;
+
+	postorder(node->left);
+	postorder(node->right);
+	printf("%d ", node->val);
 }

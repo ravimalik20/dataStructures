@@ -13,4 +13,6 @@ void main()
 	BSTree_insert(tree, 45);
 
 	BSTree_traverse_preorder(tree);
+	BSTree_traverse_inorder(tree);
+	BSTree_traverse_postorder(tree);
 }
