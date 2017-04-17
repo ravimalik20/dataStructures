@@ -46,6 +46,20 @@ int BSTree_insert(BSTree *tree, int val)
 	return 0;
 }
 
+BSNode *BSTree_search(BSTree *tree, int val)
+{
+	BSNode *node = tree->root;
+
+	while (node != NULL && node->val != val) {
+		if (val > node->val)
+			node = node->right;
+		else
+			node = node->left;
+	}
+
+	return node;
+}
+
 void BSTree_traverse_preorder(BSTree *tree)
 {
 	preorder(tree->root);
