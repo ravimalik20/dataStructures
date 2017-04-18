@@ -1,11 +1,14 @@
 #include<stdlib.h>
 #include<assert.h>
 #include<stdio.h>
+#include<stdbool.h>
 #include"bstree.h"
 
 static void preorder(BSNode *node);
 static void inorder(BSNode *node);
 static void postorder(BSNode *node);
+
+static BSNode *inorder_successor(BSTree *tree, BSNode *node);
 
 BSTree *BSTree_new(void)
 {
@@ -44,6 +47,54 @@ int BSTree_insert(BSTree *tree, int val)
 		node_parent->right = node_new;
 	else
 		node_parent->left = node_new;
+
+	return BSTREE_SUCCESS;
+}
+
+int BSTree_delete(BSTree *tree, BSNode *node)
+{
+	BSNode *n = tree->root, *node_parent=NULL;
+	bool left = false, mem_free = true;
+
+	while (n != NULL && n != node) {
+		node_parent = n;
+
+		if (node->val > n->val) {
+			n = n->right;
+			left = false;
+		}
+		else {
+			n = n->left;
+			left = true;
+		}
+	}
+
+	if (n == NULL)
+		return BSTREE_NOT_FOUND;
+
+	/* Deletion logic goes here */
+	if (node->left == NULL && node->right == NULL) {
+		left ? (node_parent->left = NULL) : (node_parent->right = NULL);
+	}
+	else if (node->left != NULL && node->right == NULL) {
+		left ? (node_parent->left = node->left) : (node_parent->right = node->left);
+	}
+	else if (node->left == NULL && node->right != NULL) {
+		left ? (node_parent->left = node->right) : (node_parent->right = node->right);
+	}
+	else {
+		BSNode *node_successor = inorder_successor(tree, node);
+		int node_successor_val = node->val;
+
+		BSTree_delete(tree, node_successor);
+
+		node->val = node_successor_val;
+
+		mem_free = false;
+	}
+
+	if (mem_free)
+		free(node);
 
 	return BSTREE_SUCCESS;
 }
@@ -126,4 +177,14 @@ static void postorder(BSNode *node)
 	postorder(node->left);
 	postorder(node->right);
 	printf("%d ", node->val);
+}
+
+static BSNode *inorder_successor(BSTree *tree, BSNode *node)
+{
+	BSNode *n = node;
+
+	while (n->left != NULL)
+		n = n->left;
+
+	return n;
 }

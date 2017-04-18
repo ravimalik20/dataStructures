@@ -2,6 +2,7 @@
 #define BSTREE_H
 
 #define BSTREE_MEM_ALLOC_FAILED -1
+#define BSTREE_NOT_FOUND -2
 #define BSTREE_SUCCESS 0
 
 struct BSNode {
