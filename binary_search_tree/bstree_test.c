@@ -40,4 +40,6 @@ void main()
 	BSTREE_DELETE(tree, 307);
 	BSTREE_DELETE(tree, 285);
 	//BSTREE_DELETE(tree, 504);
+
+	BSTree_free(tree);
 }

@@ -10,6 +10,8 @@ static void postorder(BSNode *node);
 
 static BSNode *inorder_successor(BSTree *tree, BSNode *node);
 
+static void free_nodes(BSNode *node);
+
 BSTree *BSTree_new(void)
 {
 	BSTree *tree = malloc(sizeof(BSTree));
@@ -146,6 +148,7 @@ void BSTree_free(BSTree *tree)
 {
 	assert(tree);
 
+	free_nodes(tree->root);
 	free(tree);
 }
 
@@ -187,4 +190,14 @@ static BSNode *inorder_successor(BSTree *tree, BSNode *node)
 		n = n->left;
 
 	return n;
+}
+
+static void free_nodes(BSNode *node)
+{
+	if (node == NULL)
+		return;
+
+	free_nodes(node->left);
+	free_nodes(node->right);
+	free(node);
 }
