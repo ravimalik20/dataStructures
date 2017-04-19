@@ -16,15 +16,19 @@ purpose of learning.
 3. Stack
 4. Queue
 5. Double Ended Queue (DQueue)
+6. Trees
+	- Binary Search Tree (BST)
 
 #### Next Up:
 - Trees
+	- Heap
 - Graphs
 - Hashes
 
 ## Data Structure use cases in the repo
 1. Recursion
 	- Quick Sort
+	- BST traversal
 2. Linked List
 	- Stack
 	- Queue
