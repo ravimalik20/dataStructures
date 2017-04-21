@@ -18,6 +18,7 @@ purpose of learning.
 5. Double Ended Queue (DQueue)
 6. Trees
 	- Binary Search Tree (BST)
+	- Heap. Interface only. Problem implementing.
 
 #### Next Up:
 - Trees
