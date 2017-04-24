@@ -1,7 +1,8 @@
-# DATA STRUCTURES
+# DATA STRUCTURES, ADTs & UTILS
 
-This repo is a collection of data structures written in C, created for the
-purpose of learning.
+This repo is a collection of data structures, abstract data types and utilities
+written in C, created for the purpose of learning and possible use in future
+programs.
 
 ## List of data structures present in the repo
 1. Arrays
@@ -41,6 +42,7 @@ purpose of learning.
 	- Infix to postfix converison
 - Recursion
 	- Towers of hanoi
+- Exceptions and Assertions
 
 ## License
 
