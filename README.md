@@ -19,6 +19,7 @@ purpose of learning.
 6. Trees
 	- Binary Search Tree (BST)
 	- Heap. Interface only. Problem implementing.
+7. Atom
 
 #### Next Up:
 - Trees
