@@ -5,5 +5,7 @@ link_list_test: $(objects)
 
 link_list.o: link_list.h
 
+.PHONY: clean
+
 clean:
 	rm link_list_test $(objects)

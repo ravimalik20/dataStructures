@@ -5,5 +5,7 @@ bstree_test: $(objects)
 
 bstree.o: bstree.h
 
+.PHONY: clean
+
 clean:
 	rm bstree_test $(objects)

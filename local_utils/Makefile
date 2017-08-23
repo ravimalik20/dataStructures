@@ -5,5 +5,7 @@ utils_test: $(objects)
 
 utils.o: utils.h
 
+.PHONY: clean
+
 clean:
 	rm utils_test $(objects)

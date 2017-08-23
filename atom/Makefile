@@ -5,5 +5,7 @@ atom_test: $(objects)
 
 atom.o: atom.h
 
+.PHONY : clean
+
 clean:
 	rm atom_test $(objects)
