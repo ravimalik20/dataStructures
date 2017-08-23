@@ -1,11 +1,9 @@
-bstree_test: bstree_test.o bstree.o
-	gcc bstree_test.o bstree.o -o bstree_test
+objects = bstree_test.o bstree.o
 
-bstree_test.o: bstree_test.c
-	gcc -c bstree_test.c
+bstree_test: $(objects)
+	gcc $(objects) -o bstree_test
 
-bstree.o: bstree.c bstree.h
-	gcc -c bstree.c
+bstree.o: bstree.h
 
 clean:
-	rm bstree_test bstree.o bstree_test.o
+	rm bstree_test $(objects)

@@ -1,11 +1,9 @@
-link_list_test: link_list_test.o link_list.o
-	gcc link_list_test.o link_list.o -o link_list_test
+objects = link_list_test.o link_list.o
 
-link_list_test.o: link_list_test.c
-	gcc -c link_list_test.c
+link_list_test: $(objects)
+	gcc $(objects) -o link_list_test
 
-link_list.o: link_list.c link_list.h
-	gcc -c link_list.c
+link_list.o: link_list.h
 
 clean:
-	rm link_list_test link_list.o link_list_test.o
+	rm link_list_test $(objects)
