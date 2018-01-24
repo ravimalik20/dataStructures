@@ -4,24 +4,16 @@
 #define HEAP_SUCCESS 0
 #define HEAP_MEM_ALLOC_FAILED -1
 
-struct Heap_node {
-	int val;
-	struct Heap_node *left, *right, *parent;
-};
+typedef struct Heap_t *Heap_t;
 
-struct Heap {
-	struct Heap_node *root;
-};
+Heap_t Heap_new(int len);
 
-typedef struct Heap_node Heap_node;
-typedef struct Heap Heap;
+int Heap_insert(Heap_t heap,  int val);
 
-Heap *Heap_new(void);
+int Heap_delete(Heap_t heap, int val);
 
-int Heap_insert(Heap *heap,  int val);
+void Heap_traverse(Heap_t *heap);
 
-int Heap_delete(Heap *heap, Heap_node *node);
-
-void Heap_traverse(Heap *heap);
+void Heap_print(Heap_t heap);
 
 #endif
