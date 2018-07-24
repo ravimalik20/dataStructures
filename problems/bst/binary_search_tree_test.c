@@ -15,6 +15,7 @@ void main()
 	BSTree_preorder(t);
 	BSTree_inorder(t);
 	BSTree_postorder(t);
+	BSTree_levelorder(t);
 
 	printf ("Find(%d) => %d\n", 42, BSTree_find(t, 42));
 	printf ("Find(%d) => %d\n", 40, BSTree_find(t, 40));
