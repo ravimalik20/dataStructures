@@ -22,6 +22,7 @@ void BSTree_levelorder(BSTree t);
 int BSTree_find(BSTree t, int key);
 int BSTree_insert(BSTree t, int key, int value);
 int BSTree_delete(BSTree t, int key);
+int BSTree_height(BSTree t);
 
 void BSTree_free(BSTree t);
 

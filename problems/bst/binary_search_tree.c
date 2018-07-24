@@ -6,6 +6,7 @@ static void preorder(struct tree_node *n);
 static void inorder(struct tree_node *n);
 static void postorder(struct tree_node *n);
 static void tree_free(struct tree_node *n);
+static int tree_height(struct tree_node *node);
 
 BSTree BSTree_init()
 {
@@ -65,6 +66,11 @@ int BSTree_delete(BSTree t, int key)
 
 }
 
+int BSTree_height(BSTree t)
+{
+	return tree_height(t->root);
+}
+
 void BSTree_free(BSTree t)
 {
 	tree_free(t->root);
@@ -105,6 +111,22 @@ void BSTree_postorder(BSTree t)
 void BSTree_levelorder(BSTree t)
 {
 
+}
+
+static int tree_height(struct tree_node *node)
+{
+	if (node == NULL)
+		return 0;
+
+	int lheight = 0, rheight = 0;
+
+	lheight = 1 + tree_height(node->left);
+	rheight = 1 + tree_height(node->right);
+
+	if (lheight > rheight)
+		return lheight;
+	else
+		return rheight;
 }
 
 static void preorder(struct tree_node *n)

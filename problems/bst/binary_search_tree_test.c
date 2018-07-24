@@ -19,6 +19,8 @@ void main()
 	printf ("Find(%d) => %d\n", 42, BSTree_find(t, 42));
 	printf ("Find(%d) => %d\n", 40, BSTree_find(t, 40));
 
+	printf ("Height: %d\n", BSTree_height(t));
+
 	BSTree_free(t);
 }
 
