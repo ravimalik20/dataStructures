@@ -22,6 +22,16 @@ void main()
 
 	printf ("Height: %d\n", BSTree_height(t));
 
+	printf ("Min: %d\n", BSTree_min(t));
+
 	BSTree_free(t);
+
+	BSTree t2 = BSTree_init();
+	BSTree_insert(t2, 10, 100);
+	BSTree_preorder(t2);
+	BSTree_inorder(t2);
+	BSTree_postorder(t2);
+	BSTree_levelorder(t2);
+	printf ("Min: %d\n", BSTree_min(t2));
 }
 

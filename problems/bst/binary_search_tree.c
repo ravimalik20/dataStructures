@@ -8,6 +8,7 @@ static void postorder(struct tree_node *n);
 static void tree_free(struct tree_node *n);
 static int tree_height(struct tree_node *node);
 static void levelorder(struct tree_node *n, int level);
+static struct tree_node *tree_min(struct tree_node *node);
 
 BSTree BSTree_init()
 {
@@ -121,6 +122,13 @@ void BSTree_levelorder(BSTree t)
 	printf ("\n");
 }
 
+int BSTree_min(BSTree t)
+{
+	struct tree_node *min = tree_min(t->root);
+
+	return min->key;
+}
+
 static int tree_height(struct tree_node *node)
 {
 	if (node == NULL)
@@ -190,4 +198,12 @@ static void tree_free(struct tree_node *n)
 	tree_free(n->left);
 	tree_free(n->right);
 	free(n);
+}
+
+static struct tree_node *tree_min(struct tree_node *node)
+{
+	if (node->left == NULL)
+		return node;
+
+	return tree_min(node->left);
 }
