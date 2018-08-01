@@ -11,6 +11,12 @@ static void levelorder(struct tree_node *n, int level);
 static struct tree_node *tree_min(struct tree_node *node);
 static struct tree_node *tree_find(struct tree_node *root, int key);
 static struct tree_node *tree_in_succ(struct tree_node *node);
+static struct tree_node *tree_parent(struct tree_node *root,
+	struct tree_node *node);
+static void tree_delete(struct tree_node *root, struct tree_node *node,
+	struct tree_node *parent);
+
+#define right_orient(node, parent) ( (node)->key > (parent)->key )
 
 BSTree BSTree_init()
 {
@@ -67,7 +73,67 @@ int BSTree_insert(BSTree t, int key, int value)
 
 int BSTree_delete(BSTree t, int key)
 {
+	/* Locate node and it's parent */
+	struct tree_node *node = tree_find(t->root, key);
+	if (node == NULL)
+		return -1;
 
+	struct tree_node *parent = tree_parent(t->root, node);
+
+	/* Perform delete */
+	tree_delete(t->root, node, parent);
+
+	return 0;
+}
+
+static void tree_delete(struct tree_node *root, struct tree_node *node,
+struct tree_node *parent)
+{
+	/* Case 1: Leaf node */
+	if (node->left == NULL && node->right == NULL) {
+		if (right_orient(node, parent))
+			parent->right = NULL;
+		else
+			parent->left = NULL;
+
+		free(node);
+
+		return ;
+	}
+
+	/* Case 2: Single child */
+	if ( (node->left == NULL && node->right != NULL) ||
+	(node->right == NULL && node->left != NULL) ) {
+		if (right_orient(node, parent)) {
+			if (node->left != NULL)
+				parent->right = node->left;
+			else if (node->right != NULL)
+				parent->right = node->right;
+			else
+				printf ("Binary tree delete. Error in logic. Re-check. \n");
+		}
+		else {
+			if (node->left != NULL)
+				parent->left = node->left;
+			else if (node->right != NULL)
+				parent->left = node->right;
+			else
+				printf ("Binary tree delete. Error in logic. Re-check. \n");
+		}
+
+		free(node);
+
+		return ;
+	}
+
+	/* Case 3: Both children */
+	struct tree_node *node_in_succ = tree_in_succ(node);
+	struct tree_node *par_in_succ = tree_parent(root, node_in_succ);
+
+	node->key = node_in_succ->key;
+	node->val = node_in_succ->val;
+
+	tree_delete(root, node_in_succ, par_in_succ);
 }
 
 int BSTree_height(BSTree t)
@@ -243,4 +309,20 @@ static struct tree_node *tree_in_succ(struct tree_node *node)
 		return node;
 
 	return tree_min(node->right);
+}
+
+static struct tree_node *tree_parent(struct tree_node *root, struct tree_node *node)
+{
+	struct tree_node *temp = root, *parent = NULL;
+
+	while (temp->key != node->key) {
+		parent = temp;
+
+		if (node->key > temp->key)
+			temp = temp->right;
+		else
+			temp = temp->left;
+	}
+
+	return parent;
 }
