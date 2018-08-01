@@ -9,6 +9,8 @@ static void tree_free(struct tree_node *n);
 static int tree_height(struct tree_node *node);
 static void levelorder(struct tree_node *n, int level);
 static struct tree_node *tree_min(struct tree_node *node);
+static struct tree_node *tree_find(struct tree_node *root, int key);
+static struct tree_node *tree_in_succ(struct tree_node *node);
 
 BSTree BSTree_init()
 {
@@ -129,6 +131,18 @@ int BSTree_min(BSTree t)
 	return min->key;
 }
 
+int BSTree_inorder_succ(BSTree t, int key)
+{
+	struct tree_node *n = tree_find(t->root, key);
+
+	struct tree_node *in_succ = tree_in_succ(n);
+
+	if (in_succ != NULL)
+		return in_succ->key;
+	else
+		return -1;
+}
+
 static int tree_height(struct tree_node *node)
 {
 	if (node == NULL)
@@ -206,4 +220,27 @@ static struct tree_node *tree_min(struct tree_node *node)
 		return node;
 
 	return tree_min(node->left);
+}
+
+static struct tree_node *tree_find(struct tree_node *root, int key)
+{
+	if (root == NULL)
+		return NULL;
+
+	while (root != NULL && root->key != key) {
+		if (key > root->key)
+			root = root->right;
+		else
+			root = root->left;
+	}
+
+	return root;
+}
+
+static struct tree_node *tree_in_succ(struct tree_node *node)
+{
+	if (node == NULL || node->right == NULL)
+		return node;
+
+	return tree_min(node->right);
 }

@@ -25,6 +25,7 @@ int BSTree_delete(BSTree t, int key);
 int BSTree_height(BSTree t);
 
 int BSTree_min(BSTree t);
+int BSTree_inorder_succ(BSTree t, int key);
 
 void BSTree_free(BSTree t);
 

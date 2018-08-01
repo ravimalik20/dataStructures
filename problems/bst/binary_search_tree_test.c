@@ -21,8 +21,9 @@ void main()
 	printf ("Find(%d) => %d\n", 40, BSTree_find(t, 40));
 
 	printf ("Height: %d\n", BSTree_height(t));
-
 	printf ("Min: %d\n", BSTree_min(t));
+	printf ("Inorder Succ: %d\n", BSTree_inorder_succ(t, 65));
+	printf ("Inorder Succ: %d\n", BSTree_inorder_succ(t, 1000));
 
 	BSTree_free(t);
 
@@ -33,5 +34,6 @@ void main()
 	BSTree_postorder(t2);
 	BSTree_levelorder(t2);
 	printf ("Min: %d\n", BSTree_min(t2));
+	printf ("Inorder Succ: %d\n", BSTree_inorder_succ(t, 10));
 }
 
