@@ -58,3 +58,21 @@ class Graph:
 				queue.put(v)
 
 		print ("")
+
+	def dfs(self, s):
+		visited = set()
+		stack = Stack()
+		stack.put(s)
+
+		while len(stack) > 0:
+			e = stack.get()
+			if e in visited:
+				continue
+
+			visited.add(e)
+			print (e, end=' ')
+
+			for v in self.adj[e]:
+				stack.put(v)
+
+		print ("")
