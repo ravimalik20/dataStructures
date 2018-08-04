@@ -1,3 +1,4 @@
 a.out
 *.o
 *.gch
+__pycache__
